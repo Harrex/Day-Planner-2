@@ -70,10 +70,12 @@ Make sure this is on your PATH
     and keep that somewhere on PATH
     Note: You need to cd into the correct directory so that the python VENV can find the files. I'm using relative paths that don't play well when run outside their directory.
 
-### MacOS
+#### MacOS
 I don't own a mac. Good luck
 
 ---
+
+### Configure
 
 To configure this program, there are 5 steps:
 
