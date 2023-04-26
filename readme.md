@@ -37,13 +37,49 @@ This will look different depending on which editor you use. That's how it would 
 
 ## Setup
 ---
-To set up this plugin, there are 5 steps:
 1. Download the program
     Go to the green `<> Code` button in the top right corner and download as a zip folder. Extract it to a sensible location (not downloads), and move into the `Final` folder.
+### Build
+To build this program:
+#### Windows
+1. Install Python:
+    Go to `www.python.org` and download the latest version. Make sure you tick `Add Python to PATH`.
+2. Run install-windows.bat
 
-2. Add your spreadsheets to the `Lesson Plans` folder. 
+3. Make a *shortcut* to `day-planner.py` wherever you like. 
 
-3. Set your timetable
+#### Linux
+Make sure this is on your PATH
+1. Install Python
+    ```
+    sudo apt install python3
+    ```
+2. Clone and Make
+    Make will install the necessary python libraries
+    ```
+    git clone "https://github.com/Harrex/Day-Planner-2"
+    cd Day-Planner-2
+    make 
+    ```
+3. You probably want to make a short bash script that runs day-planner
+    ```
+    cd /your/path/to/src/
+    python3 day-planner.py
+    cd -
+    ```
+    and keep that somewhere on PATH
+    Note: You need to cd into the correct directory so that the python VENV can find the files. I'm using relative paths that don't play well when run outside their directory.
+
+### MacOS
+I don't own a mac. Good luck
+
+---
+
+To configure this program, there are 5 steps:
+
+1. Add your spreadsheets to the `Lesson Plans` folder. 
+
+2. Set your timetable
     To add your timetable, go to `A.json` and `B.json`. If you're schedule is weekly, not fortnightly, lucky you! You can delete `B.json`, and if you have 3 weeks or more in your schedule, accept my condolences. Feel free to add `C.json` and so on. Just don't rename `A.json`, because that'll break things.
     
     Here, set your timetable for each day. Have as many classes as you'd like, but make sure you have them surrounded by double quotes `"like this"`. They should match your spreadsheet names.
@@ -54,7 +90,7 @@ To set up this plugin, there are 5 steps:
 ```
 
 
-4. Set your preferences
+3. Set your preferences
 In the `lesson_indexes.json` file, you can set several preferences:
     1. `Ask for week numbers` - This controls whether the program will ask what week it is. If you schedule is over multiple weeks, leave this as `true`. Else, set it to `false`, and the program will simply check `A.json` for your timetable.
     2. `Column Number` - This option sets which column the program will look for your lesson plans. Whatever is in this column will be added to the day plan. Columns start from 0: A is column 0, B is 1, C is 2 etc.
@@ -67,8 +103,8 @@ In the `lesson_indexes.json` file, you can set several preferences:
 To get the path to a folder on Windows, right click on the folder and click `Copy As Path`. You will have to replace all of the backslashes (\) with forward slashes (/) because backslashes can cause issues.
 
 
-5. Run `main.exe` 
-    Running this will first ask you what week it is (If you have that enabled), then generate the file with the current date, eg. `2023-03-02.md`. This file will open in any markdown viewer, such as Notepad, Obsidian, or Typora. These files won't be edited after creation, so feel free to add things to them after they've been generated.
+4. Run `day-planner.py` 
+    Running this will first ask you what week it is (If you have that enabled), then generate the file with the current date, eg. `2023-03-02.md`. This file will open in any markdown viewer, such as Notepad, Obsidian, or Vim. These files won't be edited after creation, so feel free to add things to them after they've been generated.
 
 
 
