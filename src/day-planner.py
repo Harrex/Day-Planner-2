@@ -8,12 +8,16 @@ def main():
     column_number = lesson_indexes["Column Number"]
     while True:
         if lesson_indexes["Ask for week numbers"]: # Read the JSON file - If this value is true, ask for the week number, otherwise just run
-            if create_timetable(input("Current Week (A/B): "), lesson_indexes, column_number):
-                input("Success! Press enter to continue.")
-                break
-            else:
-                input("Failed to create timetable - Did you type the week correctly? \n Press enter to continue.")
-                break
+            try:
+                if create_timetable(input("Current Week (A/B): "), lesson_indexes, column_number):
+                    input("Success! Press enter to continue.")
+                    break
+                else:
+                    input("Failed to create timetable - Did you type the week correctly? \n Press enter to continue.")
+                    break
+            except:
+                input("The script is probably trying to access a lesson that doesn't exist. Check your lesson indexes. Press Enter to continue")
+                quit()
         else:
             if create_timetable("A", lesson_indexes, column_number):
                 input("Success! Press enter to continue.")
@@ -30,8 +34,7 @@ def create_timetable(current_week:str, lesson_indexes, column_number):
 
     day = datetime.date.today().strftime("%A")
     print(day)
-    if timetable[day]:
-        lessons = timetable[day]
+    if lessons := timetable[day]:
         today_lesson_plans = []
 
         for lesson in lessons:
