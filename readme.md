@@ -37,16 +37,16 @@ This will look different depending on which editor you use. That's how it would 
 
 ## Setup
 ---
-1. Download the program
-    Go to the green `<> Code` button in the top right corner and download as a zip folder. Extract it to a sensible location (not downloads), and move into the `Final` folder.
 ### Build
 To build this program:
 #### Windows
-1. Install Python:
+1. Download the program
+    Go to the green `<> Code` button in the top right corner and download as a zip folder. Extract it to a sensible location (not downloads), and move into the `Final` folder.
+2. Install Python:
     Go to `www.python.org` and download the latest version. Make sure you tick `Add Python to PATH`.
-2. Run install-windows.bat
+3. Run install-windows.bat
 
-3. Make a *shortcut* to `day-planner.py` wherever you like. 
+4. Make a *shortcut* to `day-planner.py` wherever you like. 
 
 #### Linux
 Make sure this is on your PATH
