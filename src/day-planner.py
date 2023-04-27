@@ -8,20 +8,15 @@ def main():
     column_number = lesson_indexes["Column Number"]
     while True:
         if lesson_indexes["Ask for week numbers"]: # Read the JSON file - If this value is true, ask for the week number, otherwise just run
-            try:
-                if create_timetable(input("Current Week (A/B): "), lesson_indexes, column_number):
-                    input("Success! Press enter to continue.")
-                    break
+            if create_timetable(input("Current Week (A/B): "), lesson_indexes, column_number):
+                input("Success! Press enter to continue.")
+                break
                 else:
                     input("Failed to create timetable - Did you type the week correctly? \n Press enter to continue.")
                     break
-            except:
-                input("The script is probably trying to access a lesson that doesn't exist. Check your lesson indexes. Press Enter to continue")
-                quit()
-        else:
-            if create_timetable("A", lesson_indexes, column_number):
-                input("Success! Press enter to continue.")
-                break
+        except:
+            input("The script is probably trying to access a lesson that doesn't exist. Check your lesson indexes. Press Enter to continue")
+            quit()
             else:
                 input("Failed to create timetable - Have you set up the program correctly? Check the github page or the readme for instructions. \n Press enter to continue.")
                 break
@@ -38,7 +33,7 @@ def create_timetable(current_week:str, lesson_indexes, column_number):
         today_lesson_plans = []
 
         for lesson in lessons:
-            sheet = pandas.read_excel("Lesson Plans/" + lesson + ".xlsx", header=None)
+            sheet = pandas.read_excel("./Lesson Plans/" + lesson + ".xlsx", header=None)
             current_lesson = int(lesson_indexes[lesson])
             json.dump(lesson_indexes, open(
                 "lesson_indexes.json", 'w'), indent=4)
