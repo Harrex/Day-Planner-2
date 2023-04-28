@@ -11,15 +11,12 @@ def main():
             if create_timetable(input("Current Week (A/B): "), lesson_indexes, column_number):
                 input("Success! Press enter to continue.")
                 break
-                else:
-                    input("Failed to create timetable - Did you type the week correctly? \n Press enter to continue.")
-                    break
-        except:
-            input("The script is probably trying to access a lesson that doesn't exist. Check your lesson indexes. Press Enter to continue")
-            quit()
             else:
-                input("Failed to create timetable - Have you set up the program correctly? Check the github page or the readme for instructions. \n Press enter to continue.")
-                break
+                input("Failed to create timetable - Did you type the week correctly? \n Press enter to continue.")
+            break
+        else:
+            input("Failed to create timetable - Have you set up the program correctly? Check the github page or the readme for instructions. \n Press enter to continue.")
+            break
 
 def create_timetable(current_week:str, lesson_indexes, column_number):
     try:
